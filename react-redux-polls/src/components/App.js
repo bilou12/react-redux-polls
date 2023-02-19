@@ -7,7 +7,7 @@ import Leaderboard from "./Leaderboard.js";
 import LoginPage from "./LoginPage.js";
 import Nav from "./Nav";
 import NewPoll from "./NewPoll.js";
-import PollDetails from "./PollDetails.js";
+import QuestionDetails from "./QuestionDetails.js";
 import PollOverview from "./PollOverview.js";
 import UserLoggedIn from "./UserLoggedIn.js";
 
@@ -25,7 +25,10 @@ const App = (props) => {
         {props.loading === true ? null : (
           <Routes>
             <Route path="/" exact element={<PollOverview />} />
-            <Route path="/questions/:questionId" element={<PollDetails />} />
+            <Route
+              path="/questions/:questionId"
+              element={<QuestionDetails />}
+            />
             <Route path="/add" element={<NewPoll />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/login" element={<LoginPage />} />
