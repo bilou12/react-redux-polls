@@ -1,30 +1,24 @@
 import { connect } from "react-redux";
-import Question from "./Question.js";
+import Poll from "./Poll.js";
+import { userHasAlreadyVoted } from "../utils/helper.js";
 
-const PollOverview = ({ questionValues, authedUser }) => {
-  const userHasAlreadyVoted = (question) => {
-    var inOptionOne = question["optionOne"]["votes"].indexOf(authedUser) > -1;
-    var inOptionTwo = question["optionTwo"]["votes"].indexOf(authedUser) > -1;
-
-    return inOptionOne || inOptionTwo;
-  };
-
+const PollList = ({ questionValues, authedUser }) => {
   let questionsDone = questionValues.filter((question) => {
-    return userHasAlreadyVoted(question);
+    return userHasAlreadyVoted(question, authedUser);
   });
 
   let questionsTodo = questionValues.filter((question) => {
-    return !userHasAlreadyVoted(question);
+    return !userHasAlreadyVoted(question, authedUser);
   });
 
   return (
     <div>
-      <h3>Poll Overview</h3>
+      <h3>Poll List</h3>
       <h4>Todo</h4>
       <ul className="question-list">
         {questionsTodo.map((question) => {
           // return <li key={question.id}> {question.id}</li>;
-          return <Question question={question} key={question.id}></Question>;
+          return <Poll question={question} key={question.id}></Poll>;
         })}
       </ul>
 
@@ -32,7 +26,7 @@ const PollOverview = ({ questionValues, authedUser }) => {
       <ul className="question-list">
         {questionsDone.map((question) => {
           // return <li key={question.id}> {question.id}</li>;
-          return <Question question={question} key={question.id}></Question>;
+          return <Poll question={question} key={question.id}></Poll>;
         })}
       </ul>
     </div>
@@ -44,4 +38,4 @@ const mapStateToProps = ({ questions, authedUser }) => ({
   authedUser,
 });
 
-export default connect(mapStateToProps)(PollOverview);
+export default connect(mapStateToProps)(PollList);

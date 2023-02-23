@@ -1,10 +1,15 @@
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ userValues, dispatch, authedUser }) => {
+  const navigate = useNavigate();
+
   const handleOnClickUser = (e) => {
+    e.preventDefault();
     let username = e.target.value;
     dispatch(setAuthedUser(username));
+    navigate("/");
   };
 
   return (
