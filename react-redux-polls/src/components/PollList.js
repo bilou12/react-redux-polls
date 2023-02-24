@@ -1,8 +1,19 @@
 import { connect } from "react-redux";
 import Poll from "./Poll.js";
 import { userHasAlreadyVoted } from "../utils/helper.js";
+import { useState } from "react";
 
 const PollList = ({ questionValues, authedUser }) => {
+  const [selectionTodoDone, setSelectionTodoDone] = useState("todo");
+
+  const handleOnChangeSelection = (e) => {
+    e.preventDefault();
+    const newValue = e.target.value;
+    console.log("newValue: ", newValue);
+    setSelectionTodoDone(newValue);
+    console.log("selectionTodoDone: ", selectionTodoDone);
+  };
+
   let questionsDone = questionValues.filter((question) => {
     return userHasAlreadyVoted(question, authedUser);
   });
@@ -11,21 +22,33 @@ const PollList = ({ questionValues, authedUser }) => {
     return !userHasAlreadyVoted(question, authedUser);
   });
 
+  const filterQuestions = () => {
+    console.log("selectionTodoDone in : ", selectionTodoDone);
+    if (selectionTodoDone === "todo") {
+      return questionsTodo;
+    } else if (selectionTodoDone === "done") {
+      return questionsDone;
+    }
+  };
+
+  let questionsToDisplay = filterQuestions();
+
   return (
     <div>
       <h3>Poll List</h3>
-      <h4>Todo</h4>
-      <ul className="question-list">
-        {questionsTodo.map((question) => {
-          // return <li key={question.id}> {question.id}</li>;
-          return <Poll question={question} key={question.id}></Poll>;
-        })}
-      </ul>
 
-      <h4>Done</h4>
+      <select onChange={handleOnChangeSelection} value={selectionTodoDone}>
+        <option key="todo" value="todo">
+          To do
+        </option>
+        <option key="done" value="done">
+          Done
+        </option>
+      </select>
+
+      <h4>{selectionTodoDone}</h4>
       <ul className="question-list">
-        {questionsDone.map((question) => {
-          // return <li key={question.id}> {question.id}</li>;
+        {questionsToDisplay.map((question) => {
           return <Poll question={question} key={question.id}></Poll>;
         })}
       </ul>

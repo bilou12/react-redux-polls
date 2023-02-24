@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const LoginPage = ({ userValues, dispatch, authedUser }) => {
   const navigate = useNavigate();
 
-  const handleOnClickUser = (e) => {
+  const handleOnChangeUser = (e) => {
     e.preventDefault();
     let username = e.target.value;
     dispatch(setAuthedUser(username));
@@ -15,7 +15,7 @@ const LoginPage = ({ userValues, dispatch, authedUser }) => {
   return (
     <div>
       <h3 className="center">Login Page</h3>
-      <select onChange={handleOnClickUser} value={authedUser}>
+      <select onChange={handleOnChangeUser} value={authedUser}>
         {userValues.map((user) => (
           <option key={user.id} value={user.id}>
             {user.id}
