@@ -14,7 +14,6 @@ const Question = ({ dispatch, question, usersValues, authedUser }) => {
 
   const handleOnClick = (e) => {
     e.preventDefault();
-    console.log("e: ", e.target.value);
     dispatch(handleSaveQuestionAnswer(authedUser, question.id, e.target.value));
   };
 

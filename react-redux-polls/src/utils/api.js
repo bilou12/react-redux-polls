@@ -164,6 +164,7 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 }
 
 export function _saveQuestion(question) {
+  console.log("question in api: ", question);
   return new Promise((resolve, reject) => {
     if (
       !question.optionOneText ||
@@ -180,7 +181,7 @@ export function _saveQuestion(question) {
         [formattedQuestion.id]: formattedQuestion,
       };
 
-      resolve(formattedQuestion);
+      resolve({ formattedQuestion });
     }, 1000);
   });
 }
