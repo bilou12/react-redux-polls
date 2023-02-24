@@ -22,6 +22,8 @@ const NewPoll = ({ dispatch, authedUser }) => {
     };
     console.log("question: ", question);
     dispatch(handleSaveQuestion(question));
+    setOption1("");
+    setOption2("");
   };
 
   return (
