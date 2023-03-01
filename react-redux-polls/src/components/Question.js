@@ -1,8 +1,13 @@
 import { connect } from "react-redux";
 import { userHasAlreadyVoted } from "../utils/helper";
 import { handleSaveQuestionAnswer } from "../actions/shared";
+import LoginPage from "./LoginPage";
 
 const Question = ({ dispatch, question, usersValues, authedUser }) => {
+  if (authedUser === null || authedUser === "") {
+    return <LoginPage />;
+  }
+
   let questionAuthor = question.author;
 
   let user = usersValues.filter((u) => {
