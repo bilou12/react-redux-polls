@@ -11,7 +11,6 @@ const PollList = ({ questionValues, authedUser }) => {
     const newValue = e.target.value;
     console.log("newValue: ", newValue);
     setSelectionTodoDone(newValue);
-    console.log("selectionTodoDone: ", selectionTodoDone);
   };
 
   let questionsDone = questionValues.filter((question) => {
@@ -23,7 +22,6 @@ const PollList = ({ questionValues, authedUser }) => {
   });
 
   const filterQuestions = () => {
-    console.log("selectionTodoDone in : ", selectionTodoDone);
     if (selectionTodoDone === "todo") {
       return questionsTodo;
     } else if (selectionTodoDone === "done") {

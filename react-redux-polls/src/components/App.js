@@ -16,13 +16,17 @@ const App = (props) => {
     props.dispatch(handleInitialData());
   }, []);
 
+  console.log("props.isLoggedIn: ", props.isLoggedIn);
+
   return (
     <Fragment>
       <LoadingBar />
       <div className="container">
         <UserLoggedIn />
         <Nav />
-        {props.loading === true ? null : (
+        {props.isLoggedIn === false ? (
+          <LoginPage />
+        ) : (
           <Routes>
             <Route path="/" exact element={<PollList />} />
             <Route path="/question/:questionId" element={<PollDetails />} />
@@ -37,7 +41,7 @@ const App = (props) => {
 };
 
 const mapStateToProps = ({ authedUser }) => ({
-  loading: authedUser === null,
+  isLoggedIn: authedUser !== "",
 });
 
 export default connect(mapStateToProps)(App);

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = ({ userValues, dispatch, authedUser }) => {
+const LoginPage = ({ userIds, dispatch, authedUser }) => {
   const navigate = useNavigate();
 
   const handleOnChangeUser = (e) => {
@@ -16,9 +16,9 @@ const LoginPage = ({ userValues, dispatch, authedUser }) => {
     <div>
       <h3 className="center">Login Page</h3>
       <select onChange={handleOnChangeUser} value={authedUser}>
-        {userValues.map((user) => (
-          <option key={user.id} value={user.id}>
-            {user.id}
+        {userIds.map((userId) => (
+          <option key={userId} value={userId}>
+            {userId}
           </option>
         ))}
       </select>
@@ -27,7 +27,7 @@ const LoginPage = ({ userValues, dispatch, authedUser }) => {
 };
 
 const mapStateToProps = ({ users, authedUser }) => ({
-  userValues: Object.values(users),
+  userIds: [""].concat(Object.values(users).map((user) => user.id)),
   authedUser: authedUser,
 });
 
