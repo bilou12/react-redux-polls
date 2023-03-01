@@ -14,12 +14,7 @@ const withRouter = (Component) => {
 };
 
 const PollDetails = ({ id, questionValues }) => {
-  console.log("questionValues:", questionValues);
-  console.log("id:", id);
-
   let question = questionValues.filter((q) => q.id === id)[0];
-
-  console.log("question:", question);
 
   return (
     <div>

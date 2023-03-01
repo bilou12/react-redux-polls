@@ -16,8 +16,6 @@ const App = (props) => {
     props.dispatch(handleInitialData());
   }, []);
 
-  console.log("props.isLoggedIn: ", props.isLoggedIn);
-
   return (
     <Fragment>
       <LoadingBar />

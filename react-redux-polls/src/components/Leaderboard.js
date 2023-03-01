@@ -7,6 +7,7 @@ const Leaderboard = ({ usersValues }) => {
       questionsCount: user.questions.length,
       answeredCount: Object.keys(user.answers).length,
       totalCount: user.questions.length + Object.keys(user.answers).length,
+      avatarURL: user.avatarURL,
     };
   });
 
@@ -17,7 +18,8 @@ const Leaderboard = ({ usersValues }) => {
       <table>
         <thead>
           <tr>
-            <th>Users</th>
+            <th></th>
+            <th>Name</th>
             <th>Answered</th>
             <th>Created</th>
           </tr>
@@ -26,6 +28,13 @@ const Leaderboard = ({ usersValues }) => {
           {data.map((d) => {
             return (
               <tr key={d.name}>
+                <td>
+                  <img
+                    src={d.avatarURL}
+                    alt={`Avatar of ${d.name}`}
+                    className="avatar"
+                  />
+                </td>
                 <td>{d.name}</td>
                 <td>{d.answeredCount}</td>
                 <td>{d.questionsCount}</td>

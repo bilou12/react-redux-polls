@@ -9,7 +9,6 @@ const PollList = ({ questionValues, authedUser }) => {
   const handleOnChangeSelection = (e) => {
     e.preventDefault();
     const newValue = e.target.value;
-    console.log("newValue: ", newValue);
     setSelectionTodoDone(newValue);
   };
 
@@ -30,6 +29,7 @@ const PollList = ({ questionValues, authedUser }) => {
   };
 
   let questionsToDisplay = filterQuestions();
+  questionsToDisplay.sort((a, b) => b.timestamp - a.timestamp);
 
   return (
     <div>

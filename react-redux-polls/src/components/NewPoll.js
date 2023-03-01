@@ -20,7 +20,6 @@ const NewPoll = ({ dispatch, authedUser }) => {
       optionTwoText: option2,
       author: authedUser,
     };
-    console.log("question: ", question);
     dispatch(handleSaveQuestion(question));
     setOption1("");
     setOption2("");

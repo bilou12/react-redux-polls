@@ -31,8 +31,6 @@ export function handleSaveQuestion(question) {
     dispatch(showLoading());
 
     return _saveQuestion(question).then(({ formattedQuestion }) => {
-      console.log("formattedQuestion: ", formattedQuestion);
-
       dispatch(saveQuestion({ formattedQuestion }));
     });
   };

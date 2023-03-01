@@ -28,9 +28,6 @@ export function handleSaveQuestionAnswer(authedUser, qid, answer) {
       qid,
       answer,
     }).then(({ users, questions }) => {
-      console.log("users: ", users);
-      console.log("questions: ", questions);
-
       dispatch(saveQuestionAnswer({ questions }));
       dispatch(saveUserAnswer({ users }));
     });

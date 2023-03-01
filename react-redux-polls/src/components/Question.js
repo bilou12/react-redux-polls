@@ -4,11 +4,10 @@ import { handleSaveQuestionAnswer } from "../actions/shared";
 
 const Question = ({ dispatch, question, usersValues, authedUser }) => {
   let questionAuthor = question.author;
-  console.log(questionAuthor);
 
   let user = usersValues.filter((u) => {
     return u.id === questionAuthor;
-  });
+  })[0];
 
   let canVote = !userHasAlreadyVoted(question, authedUser);
 
