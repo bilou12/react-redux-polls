@@ -147,7 +147,11 @@ export function _getQuestions() {
   });
 }
 
-function formatQuestion({ optionOneText, optionTwoText, author }) {
+export function formatQuestion({ optionOneText, optionTwoText, author }) {
+  if (!optionOneText || !optionTwoText || !author) {
+    throw new Error("Missing input value");
+  }
+
   return {
     id: generateUID(),
     timestamp: Date.now(),

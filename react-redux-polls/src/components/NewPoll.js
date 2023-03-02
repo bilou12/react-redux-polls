@@ -31,16 +31,20 @@ const NewPoll = ({ dispatch, authedUser }) => {
       <input
         id="text-input-option1"
         type="text"
+        data-testid="option-1"
         value={option1}
         onChange={handleChangeOption1}
       />
       <input
         id="text-input-option2"
         type="text"
+        data-testid="option-2"
         value={option2}
         onChange={handleChangeOption2}
       />
-      <button onClick={handleOnClick}>Create new poll</button>
+      <button onClick={handleOnClick} data-testid="button">
+        Create new poll
+      </button>
     </div>
   );
 };

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question component should match snapshot 1`] = `
+<div>
+  <div
+    class="question2"
+  >
+    <div>
+      <p>
+        Poll by: User 1
+      </p>
+      <br />
+      <img
+        alt="Avatar of user1"
+        class="avatar"
+        src="avatar1.png"
+      />
+    </div>
+    <div>
+      <p>
+        Would you rather?
+      </p>
+    </div>
+    <div />
+    <div>
+      <div>
+        <p>
+          Option 1
+        </p>
+        <p>
+          1
+           votes =
+          100
+          %
+        </p>
+        <div>
+          <p>
+            You voted for the option one above
+          </p>
+        </div>
+        <br />
+        <p>
+          Option 2
+        </p>
+        <p>
+          0
+           votes =
+          0
+          %
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

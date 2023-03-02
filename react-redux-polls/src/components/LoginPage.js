@@ -15,7 +15,11 @@ const LoginPage = ({ userIds, dispatch, authedUser }) => {
   return (
     <div>
       <h3 className="center">Login Page</h3>
-      <select onChange={handleOnChangeUser} value={authedUser}>
+      <select
+        onChange={handleOnChangeUser}
+        value={authedUser}
+        data-testid="user-select"
+      >
         {userIds.map((userId) => (
           <option key={userId} value={userId}>
             {userId}

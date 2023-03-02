@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component renders correctly 1`] = `
+<div>
+  <nav
+    class="nav"
+  >
+    <ul>
+      <li>
+        <a
+          href="/login"
+        >
+          Login
+        </a>
+      </li>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/add"
+        >
+          New Pool
+        </a>
+      </li>
+      <li>
+        <a
+          href="/leaderboard"
+        >
+          Leaderboard
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
