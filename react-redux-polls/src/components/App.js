@@ -23,10 +23,7 @@ const App = (props) => {
         <UserLoggedIn />
         <Nav />
         {props.isLoggedIn === false ? (
-          <Routes>
-            <Route path="/question/:questionId" element={<PollDetails />} />
-            <Route path="/*" exact element={<PollList />} />
-          </Routes>
+          <LoginPage />
         ) : (
           <Routes>
             <Route path="/" exact element={<PollList />} />
